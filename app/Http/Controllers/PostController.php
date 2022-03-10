@@ -44,7 +44,11 @@ class PostController extends Controller
         ]);
         return redirect()->route('post.index');
     }
-    function show($post){
-        return $post;
+    function show($id){
+        // $post = DB::table('posts')->where('id',$id)->first();
+        // 如果用get去取資料，資料會輸出為陣列。
+        $post = DB::table('posts')->find($id);
+
+        return view('post.show',compact('post'));
     }
 }

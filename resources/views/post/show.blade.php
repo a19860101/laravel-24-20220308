@@ -9,23 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-    <h1>文章列表</h1>
-    <a href="/post/create">建立文章</a>
-    <a href="{{route('post.create')}}">建立文章</a>
     <div class="container">
         <div class="row">
-            @foreach($posts as $post)
             <div class="col-7">
                 <h2>{{$post->title}}</h2>
                 <div>
                     {{$post->content}}
                 </div>
-                <div>
-                    <a href="{{route('post.show',['id'=>$post->id])}}" class="btn btn-primary">繼續閱讀</a>
-                </div>
                 <hr>
             </div>
-            @endforeach
         </div>
     </div>
     <!-- JavaScript Bundle with Popper -->
