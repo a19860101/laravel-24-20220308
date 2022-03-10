@@ -12,6 +12,19 @@
     <h1>文章列表</h1>
     <a href="/post/create">建立文章</a>
     <a href="{{route('post.create')}}">建立文章</a>
+    <div class="container">
+        <div class="row">
+            @foreach($posts as $post)
+            <div class="col-7">
+                <h2>{{$post->title}}</h2>
+                <div>
+                    {{$post->content}}
+                </div>
+                <hr>
+            </div>
+            @endforeach
+        </div>
+    </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
