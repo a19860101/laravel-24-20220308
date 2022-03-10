@@ -56,4 +56,9 @@ class PostController extends Controller
         DB::table('posts')->where('id',$id)->delete();
         return redirect()->route('post.index');
     }
+    function edit($id){
+        $post = DB::table('posts')->find($id);
+
+        return view('post.edit',compact('post'));
+    }
 }
