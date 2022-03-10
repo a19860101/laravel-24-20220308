@@ -44,4 +44,7 @@ class PostController extends Controller
         ]);
         return redirect()->route('post.index');
     }
+    function show($post){
+        return $post;
+    }
 }

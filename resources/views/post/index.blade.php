@@ -20,6 +20,9 @@
                 <div>
                     {{$post->content}}
                 </div>
+                <div>
+                    <a href="{{route('post.show',['post'=>$post->id])}}" class="btn btn-primary">繼續閱讀</a>
+                </div>
                 <hr>
             </div>
             @endforeach
