@@ -17,6 +17,12 @@
                     {{$post->content}}
                 </div>
                 <hr>
+                <a href="{{route('post.index')}}" class="btn btn-primary">文章列表</a>
+                <form action="{{route('post.destroy',['id'=>$post->id])}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" class="btn btn-danger" value="刪除" onclick="return confirm('確認刪除？')">
+                </form>
             </div>
         </div>
     </div>
