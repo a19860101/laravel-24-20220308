@@ -15,7 +15,8 @@
             <div class="col-6">
                 <h2>建立文章</h2>
                 <hr>
-                <form action="store.php" method="post" enctype="multipart/form-data">
+                <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">文章標題</label>
                         <input type="text" name="title" id="title" class="form-control">
