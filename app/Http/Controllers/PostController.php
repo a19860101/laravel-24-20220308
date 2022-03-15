@@ -66,7 +66,6 @@ class PostController extends Controller
         //     'content' => $request->content,
         // ]);
 
-        // 方法六
 
 
         return redirect()->route('post.index');
@@ -81,6 +80,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('post.show',compact('post'));
     }
 
     /**
@@ -92,6 +92,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('post.edit',compact('post'));
     }
 
     /**
@@ -104,6 +105,9 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->fill($request->all());
+        $post->save();
+        return redirect()->route('post.show',['post'=>$post->id]);
     }
 
     /**
@@ -115,5 +119,8 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        // $post->delete();
+        Post::destroy($post->id);
+        return redirect()->route('post.index');
     }
 }
