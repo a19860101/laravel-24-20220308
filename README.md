@@ -24,5 +24,15 @@ php artisan migrate:rollback
 php artisan migrate:reset
 #重置Migration
 
+php artisan make:model Post
+# 建立Post Model
+# 參數
+# c: controller
+# m: migration
+# r: resource
+
+# ex: php artisan make:model Post -mcr
+# 建立Post model並且同時建立 migragion, PostController 與 resource
+
 
 ```
