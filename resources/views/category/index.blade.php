@@ -25,6 +25,13 @@
                     <input type="submit" value="建立分類" class="btn btn-primary">
                 </form>
             </div>
+            <div class="col-4">
+                <ul class="list-group">
+                    @foreach($categories as $category)
+                    <li class="list-group-item">{{$category->title}}</li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
     <!-- JavaScript Bundle with Popper -->
