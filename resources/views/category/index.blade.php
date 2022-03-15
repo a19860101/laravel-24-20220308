@@ -28,7 +28,14 @@
             <div class="col-4">
                 <ul class="list-group">
                     @foreach($categories as $category)
-                    <li class="list-group-item">{{$category->title}}</li>
+                    <li class="list-group-item d-flex align-items-center justify-content-between">
+                        {{$category->title}}
+                        <form action="{{route('category.destroy',['category'=>$category->id])}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" class="btn btn-danger" value="刪除" onclick="return confirm('確認刪除？')">
+                        </form>
+                    </li>
                     @endforeach
                 </ul>
             </div>
