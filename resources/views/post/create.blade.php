@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-10 col-lg-8">
                 <h2>建立文章</h2>
                 <hr>
                 <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
@@ -20,6 +20,14 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">文章標題</label>
                         <input type="text" name="title" id="title" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">文章分類</label>
+                        <select name="category_id" id="" class="form-select">
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">文章內容</label>
