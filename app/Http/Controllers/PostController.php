@@ -15,6 +15,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+        return view('post.index',compact('posts'));
     }
 
     /**
@@ -25,6 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('post.create');
     }
 
     /**
@@ -35,7 +38,38 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 方法一
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->content = $request->content;
+        // $post->save();
+
+        // 方法二
+        // $post = new Post;
+        // $post->fill([
+        //     'title' => $request->title,
+        //     'content' => $request->content
+        // ]);
+        // $post->save();
+
+        // 方法三
+        // $post = new Post;
+        // $post->fill($request->all());
+        // $post->save();
+
+        // 方法四
+        Post::create($request->all());
+
+        // 方法五
+        // Post::create([
+        //     'title' => $request->title,
+        //     'content' => $request->content,
+        // ]);
+
+        // 方法六
+
+
+        return redirect()->route('post.index');
     }
 
     /**
