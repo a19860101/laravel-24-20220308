@@ -15,6 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return view('category.index');
     }
 
     /**
@@ -36,6 +37,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        Category::create($request->all());
+        return redirect()->route('category.index');
     }
 
     /**

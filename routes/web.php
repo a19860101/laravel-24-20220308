@@ -31,3 +31,4 @@ Route::get('service',function(){
 // Route::put('post/{id}','PostController@update')->name('post.update');
 
 Route::resource('post','PostController');
+Route::resource('category','CategoryController');
