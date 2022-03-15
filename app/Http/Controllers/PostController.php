@@ -15,7 +15,9 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        // $posts = Post::all();
+        // $posts = Post::get();
+        $posts = Post::orderBy('id','DESC')->get();
         return view('post.index',compact('posts'));
     }
 
@@ -80,6 +82,11 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        // $post = Post::find($post->id);
+        // $post = Post::findOrFail($post->id);
+        // $post = Post::findOrFail(67);
+        // $post = Post::find(67);
+        // return $post;
         return view('post.show',compact('post'));
     }
 
