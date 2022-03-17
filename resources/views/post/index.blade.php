@@ -10,6 +10,9 @@
         <div class="col-10 border rounded my-3 p-3">
             <h2>{{$post->title}}</h2>
             <small>{{$post->created_at}}</small>
+            <div>
+                <small>分類:{{$post->category->title}}</small>
+            </div>
             <div class="my-3">
                 {!! Str::limit(strip_tags($post->content),100) !!}
             </div>
