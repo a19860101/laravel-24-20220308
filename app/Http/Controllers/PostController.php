@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use Auth;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -57,12 +58,13 @@ class PostController extends Controller
         // $post->save();
 
         // 方法三
-        // $post = new Post;
-        // $post->fill($request->all());
-        // $post->save();
+        $post = new Post;
+        $post->fill($request->all());
+        $post->user_id = Auth::id();
+        $post->save();
 
         // 方法四
-        Post::create($request->all());
+        // Post::create($request->all());
 
         // 方法五
         // Post::create([
