@@ -4,23 +4,24 @@
 @endsection
 @section('content')
 
-<h1>文章列表</h1>
-<a href="/post/create">建立文章</a>
-<a href="{{route('post.create')}}">建立文章</a>
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         @foreach($posts as $post)
-        <div class="col-7">
+        <div class="col-10 border rounded my-3 p-3">
             <h2>{{$post->title}}</h2>
-            <div>
+            <div class="my-3">
                 {{$post->content}}
             </div>
             <div>
                 <a href="{{route('post.show',['post'=>$post->id])}}" class="btn btn-primary">繼續閱讀</a>
             </div>
-            <hr>
+            <div class="float-end">
+                {{$post->updated_at}}
+            </div>
         </div>
+
         @endforeach
     </div>
 </div>
+
 @endsection
