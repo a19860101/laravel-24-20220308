@@ -4,7 +4,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12">
+                <h2>分類管理</h2>
+                <hr>
+            </div>
+            <div class="col-lg-8 mb-3">
                 <form action="{{route('category.store')}}" method="post">
                     @csrf
                     <div class="mb-3">
@@ -18,7 +22,7 @@
                     <input type="submit" value="建立分類" class="btn btn-primary">
                 </form>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4">
                 <ul class="list-group">
                     @foreach($categories as $category)
                     <li class="list-group-item d-flex align-items-center justify-content-between">

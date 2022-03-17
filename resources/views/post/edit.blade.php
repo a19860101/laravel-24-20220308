@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-10">
                 <h2>編輯文章</h2>
                 <hr>
                 <form action="{{route('post.update',['post'=>$post->id])}}" method="post" enctype="multipart/form-data">

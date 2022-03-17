@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-10 col-lg-8">
+            <div class="col-10">
                 <h2>建立文章</h2>
                 <hr>
                 <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
