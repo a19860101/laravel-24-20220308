@@ -11,7 +11,7 @@
             <h2>{{$post->title}}</h2>
             <small>{{$post->created_at}}</small>
             <div class="my-3">
-                {{$post->content}}
+                {{Str::limit($post->content,100)}}
             </div>
             <div>
                 <a href="{{route('post.show',['post'=>$post->id])}}" class="btn btn-primary">繼續閱讀</a>

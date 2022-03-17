@@ -34,4 +34,5 @@
         </div>
     </div>
 
+    @include('template.tinymce')
 @endsection
