@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-10 border rounded my-3 p-3">
                 <h2>{{$post->title}}</h2>
-                <div class="my-3">
-                    {{$post->content}}
+                <div class="my-3 lh-lg">
+                    {!! $post->content !!}
                 </div>
                 <div class="my-3">
                     {{$post->updated_at}}
