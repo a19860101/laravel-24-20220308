@@ -32,3 +32,7 @@ Route::get('service',function(){
 
 Route::resource('post','PostController');
 Route::resource('category','CategoryController');
+
+Route::get('test',function(){
+    return view('test');
+});
