@@ -11,6 +11,9 @@
             <h2>{{$post->title}}</h2>
             <small>{{$post->created_at}}</small>
             <div>
+                作者:{{$post->user->name}} ({{$post->user->email}})
+            </div>
+            <div>
                 <small>分類:{{$post->category->title}}</small>
             </div>
             <div class="my-3">
