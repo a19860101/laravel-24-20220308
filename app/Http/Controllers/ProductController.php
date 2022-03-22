@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('product.index');
+        return view('admin.product.index');
     }
 
     /**
@@ -82,5 +82,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+    public function list(){
+        return view('product.index');
     }
 }

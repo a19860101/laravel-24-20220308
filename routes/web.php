@@ -43,7 +43,9 @@ Route::get('test',function(){
     return view('test');
 });
 
-Route::resource('product','ProductController');
+Route::resource('admin/product','ProductController');
+Route::get('product','ProductController@list');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
