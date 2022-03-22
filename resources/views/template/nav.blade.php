@@ -9,12 +9,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('post.index')}}">文章列表</a>
                 </li>
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('post.create')}}">建立文章</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('category.index')}}">分類管理</a>
                 </li>
+                @endauth
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
