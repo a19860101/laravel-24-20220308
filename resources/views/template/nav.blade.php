@@ -13,9 +13,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('post.create')}}">建立文章</a>
                 </li>
+                @if(Auth::user()->role_id == 2)
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('category.index')}}">分類管理</a>
                 </li>
+                @endif
                 @endauth
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -52,3 +54,4 @@
         </div>
     </div>
 </nav>
+
