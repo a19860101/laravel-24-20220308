@@ -30,8 +30,14 @@ Route::get('service',function(){
 // Route::get('post/{id}/edit','PostController@edit')->name('post.edit');
 // Route::put('post/{id}','PostController@update')->name('post.update');
 
-Route::resource('post','PostController');
-Route::resource('category','CategoryController');
+// Route::resource('post','PostController');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::resource('post','PostController')->except('index','show');
+});
+Route::resource('post','PostController')->only('index','show');
+
+Route::resource('category','CategoryController')->middleware('auth');
 
 Route::get('test',function(){
     return view('test');
