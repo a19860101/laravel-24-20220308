@@ -13,6 +13,7 @@
                             <th>特價</th>
                             <th>上架日期</th>
                             <th>下架日期</th>
+                            <th>狀態</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,17 @@
                             <td>{{$product->sale}}</td>
                             <td>{{$product->start_at}}</td>
                             <td>{{$product->end_at}}</td>
+                            <td>
+                                @if($product->end_at < today())
+                                    <span class="badge bg-secondary">已下架</span>
+                                @else
+                                    @if($product->start_at > today())
+                                    <span class="badge bg-warning">未上架</span>
+                                    @else
+                                    <span class="badge bg-primary">上架中</span>
+                                    @endif
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
