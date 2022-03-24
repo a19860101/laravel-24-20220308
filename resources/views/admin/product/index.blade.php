@@ -14,6 +14,7 @@
                             <th>上架日期</th>
                             <th>下架日期</th>
                             <th>狀態</th>
+                            <th>動作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,9 @@
                                     <span class="badge bg-primary">上架中</span>
                                     @endif
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{route('product.edit',['product'=>$product->id])}}" class="btn btn-success btn-sm">編輯商品</a>
                             </td>
                         </tr>
                         @endforeach
