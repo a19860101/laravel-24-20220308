@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Str;
+use Storage;
 
 class ProductController extends Controller
 {
@@ -122,11 +123,14 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        if($product->cover){
+            Storage::disk('public')->delete('images/'.$product->cover);
+        }
         $product->delete();
         return redirect()->route('product.index');
     }
     public function list(){
-        $products = Product::where('start_at','<',today())->where('end_at','>',today())->orderBy('id','DESC')->get();
+        $products = Product::where('start_at','<',today())->orWhere('end_at','>',today())->orderBy('id','DESC')->get();
         return view('product.list',compact('products'));
     }
 }
