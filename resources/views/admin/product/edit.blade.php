@@ -12,8 +12,18 @@
                     <input type="text" name="title" class="form-control" value="{{$product->title}}">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">商品圖片</label>
-                    <input type="file" name="cover" class="form-control">
+                    @if($product->cover)
+                        <img src="{{asset('storage/images/'.$product->cover)}}" width="200">
+                        <input type="hidden" name="cover">
+                        <form action="" method="post">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" class="btn btn-danger btn-sm" value="刪除圖片">
+                        </form>
+                    @else
+                        <label for="" class="form-label">商品圖片</label>
+                        <input type="file" name="cover" class="form-control">
+                    @endif
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">商品敘述</label>
