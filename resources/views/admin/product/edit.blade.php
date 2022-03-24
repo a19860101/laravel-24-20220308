@@ -4,8 +4,9 @@
     <div class="row">
         <div class="col-12">
             <h2>編輯商品</h2>
-            <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('product.update',['product'=>$product->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('put')
                 <div class="mb-3">
                     <label for="" class="form-label">商品名稱</label>
                     <input type="text" name="title" class="form-control" value="{{$product->title}}">
@@ -27,12 +28,18 @@
                     <input type="text" name="sale" class="form-control" value="{{$product->sale}}">
                 </div>
                 <div class="mb-3">
+                    @php
+                        $start_at = Carbon\Carbon::parse($product->start_at)->toDateString();
+                    @endphp
                     <label for="" class="form-label">上架日期</label>
-                    <input type="date" name="start_at" class="form-control" value="{{$product->start_at}}">
+                    <input type="date" name="start_at" class="form-control" value="{{$start_at}}">
                 </div>
                 <div class="mb-3">
+                    @php
+                        $end_at = Carbon\Carbon::parse($product->end_at)->toDateString();
+                    @endphp
                     <label for="" class="form-label">下架日期</label>
-                    <input type="date" name="end_at" class="form-control" value="{{$product->end_at}}">
+                    <input type="date" name="end_at" class="form-control" value="{{$end_at}}">
                 </div>
                 <input type="submit" class="btn btn-primary" value="儲存修改">
             </form>

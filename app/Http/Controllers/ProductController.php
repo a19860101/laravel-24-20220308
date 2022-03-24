@@ -98,6 +98,19 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $product->fill($request->all());
+
+        if($request->file('cover')){
+            $ext = $request->file('cover')->getClientOriginalExtension();
+            $cover = Str::uuid().'.'.$ext;
+            $request->file('cover')->storeAs('images',$cover,'public');
+        }else{
+            $cover = null;
+        }
+        $product->cover = $cover;
+        $product->save();
+
+        return redirect()->route('product.index');
     }
 
     /**
