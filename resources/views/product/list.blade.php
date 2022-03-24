@@ -11,7 +11,12 @@
         @foreach($products as $product)
         <div class="col-xl-3 col-sm-6">
             <div class="border rounded h-100 overflow-hidden shadow-sm mx-5 mx-sm-0">
-                <img src="https://picsum.photos/id/23/800/600" class="w-100">
+                @if($product->cover != null)
+                <img src="{{asset('storage/images/'.$product->cover)}}" class="w-100">
+                @else
+                <div class="placeholder col-12 py-5">
+                </div>
+                @endif
                 <div class="p-3">
                     <h4>{{$product->title}}</h4>
                     @if($product->sale != null)
