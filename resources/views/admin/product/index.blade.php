@@ -39,6 +39,11 @@
                             </td>
                             <td>
                                 <a href="{{route('product.edit',['product'=>$product->id])}}" class="btn btn-success btn-sm">編輯商品</a>
+                                <form action="{{route('product.destroy',['product'=>$product->id])}}" method="post" class="d-inline-block">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" class="btn btn-danger btn-sm" value="刪除" onclick="return confirm('確認刪除？')">
+                                </form>
                             </td>
                         </tr>
                         @endforeach

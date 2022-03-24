@@ -122,6 +122,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+        return redirect()->route('product.index');
     }
     public function list(){
         $products = Product::where('start_at','<',today())->where('end_at','>',today())->orderBy('id','DESC')->get();
