@@ -39,6 +39,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+
+        // return $request->file('cover')->store('test');
+        // return $request->file('cover')->store('test','public');
+        // return $request->file('cover')->storeAs('test','hello');
+        return $request->file('cover')->storeAs('test','hello','public');
+
+
+
         // Product::create($request->all());
         $product = new Product;
         $product->fill($request->all());
