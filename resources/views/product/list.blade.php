@@ -10,8 +10,8 @@
         </div>
         @foreach($products as $product)
         <div class="col-xl-3 col-sm-6">
-            <img src="https://picsum.photos/id/23/800/600" class="w-100">
-            <div class="border border-top-0 rounded-bottom">
+            <div class="border rounded h-100 overflow-hidden shadow-sm mx-5 mx-sm-0">
+                <img src="https://picsum.photos/id/23/800/600" class="w-100">
                 <div class="p-3">
                     <h4>{{$product->title}}</h4>
                     @if($product->sale != null)
