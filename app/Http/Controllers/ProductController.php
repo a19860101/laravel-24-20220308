@@ -93,7 +93,7 @@ class ProductController extends Controller
         //
     }
     public function list(){
-        $products = Product::orderBy('id','DESC')->get();
+        $products = Product::where('start_at','<',today())->where('end_at','>',today())->orderBy('id','DESC')->get();
         return view('product.list',compact('products'));
     }
 }
