@@ -133,4 +133,7 @@ class ProductController extends Controller
         $products = Product::where('start_at','<',today())->orWhere('end_at','>',today())->orderBy('id','DESC')->get();
         return view('product.list',compact('products'));
     }
+    public function removeCover(){
+        return 'removeCover';
+    }
 }

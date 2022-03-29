@@ -15,11 +15,7 @@
                     @if($product->cover)
                         <img src="{{asset('storage/images/'.$product->cover)}}" width="200">
                         <input type="hidden" name="cover">
-                        <form action="" method="post">
-                            @csrf
-                            @method('delete')
-                            <input type="submit" class="btn btn-danger btn-sm" value="刪除圖片">
-                        </form>
+                        <a href="{{route('removeCover')}}" class="btn btn-danger btn-sm">刪除</a>
                     @else
                         <label for="" class="form-label">商品圖片</label>
                         <input type="file" name="cover" class="form-control">
