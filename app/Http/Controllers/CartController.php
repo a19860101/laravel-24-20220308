@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use Illuminate\Http\Request;
+use Auth;
 
 class CartController extends Controller
 {
@@ -35,7 +36,20 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //加入購物車
+
+        if(!Auth::id()){
+            return redirect('/login');
+        }
+
+
+        $cart = new Cart;
+        $cart->product_id = $request->product_id;
+        $cart->user_id = Auth::id();
+        $cart->save();
+
+        return redirect()->back();
+
     }
 
     /**

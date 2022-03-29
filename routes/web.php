@@ -53,3 +53,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+//購物車
+Route::resource('cart','CartController');

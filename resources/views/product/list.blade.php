@@ -28,7 +28,12 @@
 
                     @endif
                     <hr>
-                    <a href="#" class="btn btn-primary">加入購物車</a>
+                    <form action="{{route('cart.store')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{$product->id}}">
+                        <input type="submit" class="btn btn-primary" value="加入購物車">
+                    </form>
+                    {{-- <a href="{{}}" class="btn btn-primary">加入購物車</a> --}}
                 </div>
             </div>
         </div>
