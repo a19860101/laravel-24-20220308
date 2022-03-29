@@ -147,8 +147,11 @@ class ProductController extends Controller
         return redirect()->back();
     }
     public function forceDeleteProduct(Request $request){
+        $product = Product::withTrashed()->find($request->id);
+        if($product->cover){
+            Storage::disk('public')->delete('images/'.$product->cover);
+        }
         Product::withTrashed()->find($request->id)->forceDelete();
-
         return redirect()->back();
     }
 }
