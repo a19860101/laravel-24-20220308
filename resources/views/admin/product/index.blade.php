@@ -82,8 +82,13 @@
                                 <form action="{{route('product.destroy',['product'=>$dProduct->id])}}" method="post" class="d-inline-block">
                                     @csrf
                                     @method('delete')
-                                    <input type="submit" class="btn btn-danger btn-sm" value="刪除" onclick="return confirm('確認刪除？')">
+                                    <input type="submit" class="btn btn-danger btn-sm" value="軟刪除" onclick="return confirm('確認刪除？')">
                                 </form>
+                                <form action="{{route('forceDeleteProduct',['id'=>$dProduct->id])}}" method="post" class="d-inline-block">
+                                    @csrf
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="強制刪除" onclick="return confirm('確認刪除？')">
+                                </form>
+
                             </td>
                         </tr>
                         @endforeach

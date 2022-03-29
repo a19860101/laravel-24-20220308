@@ -146,4 +146,9 @@ class ProductController extends Controller
         // $product->restore();
         return redirect()->back();
     }
+    public function forceDeleteProduct(Request $request){
+        Product::withTrashed()->find($request->id)->forceDelete();
+
+        return redirect()->back();
+    }
 }
