@@ -27,6 +27,8 @@
                     <span class="fw-bold">售價NT.${{$product->price}}</span>
 
                     @endif
+                    <hr>
+                    <a href="#" class="btn btn-primary">加入購物車</a>
                 </div>
             </div>
         </div>
