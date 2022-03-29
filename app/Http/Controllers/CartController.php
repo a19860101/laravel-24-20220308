@@ -16,6 +16,11 @@ class CartController extends Controller
     public function index()
     {
         //
+        if(!Auth::id()){
+            return redirect('/login');
+        }
+        $carts = Cart::orderBy('id','DESC')->where('user_id',Auth::id())->get();
+        return view('cart.index',compact('carts'));
     }
 
     /**

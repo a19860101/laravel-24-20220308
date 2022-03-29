@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('product.index')}}">商品列表</a>
+                    <a class="nav-link" href="{{route('product.list')}}">商品列表</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('post.index')}}">文章列表</a>
@@ -25,6 +25,9 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a href="{{route('cart.index')}}" class="nav-link">購物車</a>
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

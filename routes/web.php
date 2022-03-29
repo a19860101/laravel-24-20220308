@@ -44,7 +44,7 @@ Route::get('test',function(){
 });
 
 Route::resource('admin/product','ProductController');
-Route::get('product','ProductController@list');
+Route::get('product','ProductController@list')->name('product.list');
 Route::get('removeCover/{product}','ProductController@removeCover')->name('removeCover');
 Route::get('admin/restoreProduct/{id}','ProductController@restoreProduct')->name('restoreProduct');
 Route::post('admin/forceDeleteProduct','ProductController@forceDeleteProduct')->name('forceDeleteProduct');
