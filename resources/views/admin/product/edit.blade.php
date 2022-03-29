@@ -14,7 +14,7 @@
                 <div class="mb-3">
                     @if($product->cover)
                         <img src="{{asset('storage/images/'.$product->cover)}}" width="200">
-                        <input type="hidden" name="cover">
+                        <input type="hidden" name="cover" value="{{$product->cover}}">
                         <a href="{{route('removeCover',['product'=>$product->id])}}" class="btn btn-danger btn-sm">刪除</a>
                     @else
                         <label for="" class="form-label">商品圖片</label>

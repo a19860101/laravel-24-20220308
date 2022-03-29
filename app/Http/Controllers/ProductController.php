@@ -106,7 +106,7 @@ class ProductController extends Controller
             $cover = Str::uuid().'.'.$ext;
             $request->file('cover')->storeAs('images',$cover,'public');
         }else{
-            $cover = null;
+            $cover = $product->cover;
         }
         $product->cover = $cover;
         $product->save();
