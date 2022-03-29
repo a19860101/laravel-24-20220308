@@ -18,7 +18,8 @@ class ProductController extends Controller
     {
         //
         $products = Product::orderBy('id','DESC')->get();
-        return view('admin.product.index',compact('products'));
+        $deletedProducts = Product::withTrashed()->get();
+        return view('admin.product.index',compact('products','deletedProducts'));
     }
 
     /**

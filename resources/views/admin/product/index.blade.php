@@ -50,6 +50,47 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-12">
+                <h2>已刪除商品列表</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>序號</th>
+                            <th>商品名稱</th>
+                            <th>售價</th>
+                            <th>特價</th>
+                            <th>上架日期</th>
+                            <th>下架日期</th>
+                            <th>狀態</th>
+                            <th>動作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($deletedProducts as $dProduct)
+                        <tr>
+                            <td>{{$dProduct->id}}</td>
+                            <td>{{$dProduct->title}}</td>
+                            <td>{{$dProduct->price}}</td>
+                            <td>{{$dProduct->sale}}</td>
+                            <td>{{$dProduct->start_at}}</td>
+                            <td>{{$dProduct->end_at}}</td>
+                            <td>
+                                <span class="badge bg-secondary">已刪除</span>
+                            </td>
+                            <td>
+                                <a href="{{route('product.edit',['product'=>$dProduct->id])}}" class="btn btn-success btn-sm">還原</a>
+                                <form action="{{route('product.destroy',['product'=>$dProduct->id])}}" method="post" class="d-inline-block">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" class="btn btn-danger btn-sm" value="刪除" onclick="return confirm('確認刪除？')">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 @endsection
