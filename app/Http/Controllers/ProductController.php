@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::orderBy('id','DESC')->get();
-        $deletedProducts = Product::withTrashed()->get();
+        $deletedProducts = Product::onlyTrashed()->get();
         return view('admin.product.index',compact('products','deletedProducts'));
     }
 
@@ -140,9 +140,10 @@ class ProductController extends Controller
         $product->save();
         return redirect()->back();
     }
-    public function restoreProduct(Product $product){
-        return $product->history();
+    public function restoreProduct($id){
+        // Product::withTrashed()->where('id',$id)->restore();
+        Product::withTrashed()->find($id)->restore();
         // $product->restore();
-        // return redirect()->back();
+        return redirect()->back();
     }
 }
