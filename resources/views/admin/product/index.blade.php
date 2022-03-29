@@ -78,7 +78,7 @@
                                 <span class="badge bg-secondary">已刪除</span>
                             </td>
                             <td>
-                                <a href="{{route('product.edit',['product'=>$dProduct->id])}}" class="btn btn-success btn-sm">還原</a>
+                                <a href="{{route('restoreProduct',['product'=>$dProduct->id])}}" class="btn btn-success btn-sm">還原</a>
                                 <form action="{{route('product.destroy',['product'=>$dProduct->id])}}" method="post" class="d-inline-block">
                                     @csrf
                                     @method('delete')

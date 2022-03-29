@@ -124,9 +124,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
-        if($product->cover){
-            Storage::disk('public')->delete('images/'.$product->cover);
-        }
+        // if($product->cover){
+        //     Storage::disk('public')->delete('images/'.$product->cover);
+        // }
         $product->delete();
         return redirect()->route('product.index');
     }
@@ -139,5 +139,10 @@ class ProductController extends Controller
         $product->cover = null;
         $product->save();
         return redirect()->back();
+    }
+    public function restoreProduct(Product $product){
+        return $product->history();
+        // $product->restore();
+        // return redirect()->back();
     }
 }

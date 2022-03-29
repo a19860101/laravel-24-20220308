@@ -46,6 +46,10 @@ Route::get('test',function(){
 Route::resource('admin/product','ProductController');
 Route::get('product','ProductController@list');
 Route::get('removeCover/{product}','ProductController@removeCover')->name('removeCover');
+Route::get('admin/restoreProduct/{product}','ProductController@restoreProduct')->name('restoreProduct');
+// Route::get('admin/restoreProduct/{product}',function(){
+//     return 'test';
+// })->name('restoreProduct');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
