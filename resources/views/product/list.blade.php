@@ -12,13 +12,17 @@
         <div class="col-xl-3 col-sm-6">
             <div class="border rounded h-100 overflow-hidden shadow-sm mx-5 mx-sm-0">
                 @if($product->cover != null)
-                <img src="{{asset('storage/images/'.$product->cover)}}" class="w-100">
+                <a href="{{route('product.show',['product'=>$product->id])}}">
+                    <img src="{{asset('storage/images/'.$product->cover)}}" class="w-100">
+                </a>
                 @else
                 <div class="placeholder col-12 py-5">
                 </div>
                 @endif
                 <div class="p-3">
-                    <h4>{{$product->title}}</h4>
+                    <h4>
+                        {{$product->title}}
+                    </h4>
                     @if($product->sale != null)
                     <span class="text-danger fw-bold">特價NT.${{$product->sale}}</span>
                     <br>
