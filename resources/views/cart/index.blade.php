@@ -26,6 +26,12 @@
             </div>
         </div>
         @endforeach
+        <div class="col-12">
+            <form action="{{route('clearCart')}}" method="post">
+                @csrf
+                <input type="submit" value="清空購物車" class="btn btn-outline-danger">
+            </form>
+        </div>
     </div>
 </div>
 @endsection
