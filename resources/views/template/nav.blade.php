@@ -25,8 +25,15 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
+                @php
+                $carts = App\Cart::where('user_id',Auth::id())->get();
+                $carts_num = count($carts);
+                @endphp
                 <li class="nav-item">
-                    <a href="{{route('cart.index')}}" class="nav-link">購物車</a>
+                    <a href="{{route('cart.index')}}" class="nav-link">
+                        購物車
+                        <span>{{$carts_num}}</span>
+                    </a>
                 </li>
                 @guest
                     <li class="nav-item">
