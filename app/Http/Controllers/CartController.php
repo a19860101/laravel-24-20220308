@@ -20,7 +20,16 @@ class CartController extends Controller
             return redirect('/login');
         }
         $carts = Cart::orderBy('id','DESC')->where('user_id',Auth::id())->get();
-        return view('cart.index',compact('carts'));
+        $price =[];
+        foreach($carts as $cart){
+            if($cart->product->sale){
+                $price[] = $cart->product->sale;
+            }else{
+                $price[] = $cart->product->price;
+            }
+        }
+        $total = collect($price)->sum();
+        return view('cart.index',compact('carts','total'));
     }
 
     /**

@@ -37,7 +37,9 @@
         </div>
         @endforeach
         <div class="col-12">
-
+            <div class='text-end'>
+                總金額:NT.${{$total}}
+            </div>
             @if(count($carts) != 0)
             <form action="{{route('clearCart')}}" method="post">
                 @csrf
