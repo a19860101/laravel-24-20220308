@@ -10,7 +10,15 @@
         </div>
         @foreach($carts as $cart)
         <div class="col-12">
-            <h2>{{$cart->product->title}}</h2>
+            <div class="border rounded my-3 p-3 d-flex justify-content-between align-items-center">
+                <img src="{{asset('storage/images/'.$cart->product->cover)}}" width="200">
+                <div class="me-auto ps-2">
+                    {{$cart->product->title}}
+                </div>
+                <div>
+                    NT.${{$cart->product->price}}
+                </div>
+            </div>
         </div>
         @endforeach
     </div>
