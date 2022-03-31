@@ -10,7 +10,7 @@
         </div>
         @foreach($carts as $cart)
         <div class="col-12">
-            <h2>{{$cart->product_id}}</h2>
+            <h2>{{$cart->product->title}}</h2>
         </div>
         @endforeach
     </div>

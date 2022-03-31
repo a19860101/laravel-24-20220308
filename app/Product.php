@@ -10,4 +10,8 @@ class Product extends Model
     //
     use SoftDeletes;
     protected $fillable = ['title','cover','description','price','sale','start_at','end_at'];
+
+    public function carts(){
+        return $this->hasMany('App\Cart');
+    }
 }
