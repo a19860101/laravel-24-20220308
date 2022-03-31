@@ -7,6 +7,16 @@
     <div class="row">
         <div class="col-12">
             <h2>購物車列表</h2>
+            <div>
+                {{count($carts) == 0 ? '目前沒有商品':'目前共有'.count($carts).'件商品'}}
+            </div>
+            {{-- @if(count($carts) == 0)
+            <div>目前沒有商品</div>
+            @endif
+            @if(count($carts) != 0)
+            <div>目前共有{{count($carts)}}件商品</div>
+            @endif --}}
+
         </div>
         @foreach($carts as $cart)
         <div class="col-12">
@@ -27,10 +37,16 @@
         </div>
         @endforeach
         <div class="col-12">
+
+            @if(count($carts) != 0)
             <form action="{{route('clearCart')}}" method="post">
                 @csrf
                 <input type="submit" value="清空購物車" class="btn btn-outline-danger">
             </form>
+            @endif
+            <div class="my-2">
+                <a href="{{route('product.list')}}" class="btn btn-primary">繼續購物</a>
+            </div>
         </div>
     </div>
 </div>
