@@ -57,3 +57,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //購物車
 Route::resource('cart','CartController');
 Route::post('clearCart','CartController@clearCart')->name('clearCart');
+
+
+//搜尋
+Route::get('search',function(){
+    return view('post.search');
+})->name('search');

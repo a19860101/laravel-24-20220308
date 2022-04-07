@@ -41,6 +41,9 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a href="{{route('search')}}" class="nav-link">搜尋文章</a>
+                </li>
                 @php
                 $carts = App\Cart::where('user_id',Auth::id())->get();
                 $carts_num = count($carts);
