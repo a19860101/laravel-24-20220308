@@ -12,11 +12,15 @@ class SearchController extends Controller
         return view('post.search');
     }
     function searchResult(Request $request){
-        return $request;
+        $start = $request->start ?? date('Y-m-d');
+        $end = $request->end ?? date('Y-m-d');
 
 
         $results = DB::table('posts')
             ->where('title','LIKE','%'.$request->keyword.'%')
+            ->whereBetween('created_at',[
+                $start,$end
+            ])
             ->get();
         return view('post.result',compact('results'));
     }
