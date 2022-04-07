@@ -13,7 +13,11 @@
         </div>
         @foreach ($results as $result)
         <div class="col-8">
-            <h3>{{$result->title}}</h3>
+            <h3>
+                <a href="{{route('post.show',['post'=>$result->id])}}">
+                    {{$result->title}}
+                </a>
+            </h3>
         </div>
         @endforeach
     </div>
