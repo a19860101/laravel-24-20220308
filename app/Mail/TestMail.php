@@ -29,7 +29,7 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->from()
+        return $this->from($this->params->mail)
         ->subject('subject')
         ->view('mail')
         ->with([

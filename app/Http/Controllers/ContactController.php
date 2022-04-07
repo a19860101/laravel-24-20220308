@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
-// use TestMail;
+use App\Mail\TestMail;
 
 class ContactController extends Controller
 {
@@ -19,7 +19,7 @@ class ContactController extends Controller
         //     $message->to('a19860101@gmail.com');
         //     $message->subject('hello subject');
         // });
-
-        Mail::to('a19860101@gmail.com')->send(new TestMail($request));
+        $params = $request;
+        Mail::to('a19860101@gmail.com')->send(new TestMail($params));
     }
 }

@@ -11,12 +11,12 @@
         HELLO
     </h1>
     <ul>
-        <li>{{$param->name}}</li>
-        <li>{{$param->phone}}</li>
-        <li>{{$param->mail}}</li>
+        <li>{{$name}}</li>
+        <li>{{$phone}}</li>
+        <li>{{$mail}}</li>
     </ul>
     <div>
-        {{$param->content}}
+        {{$content}}
     </div>
 </body>
 </html>
