@@ -28,6 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{route('post.index')}}">文章列表</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{route('contact')}}">聯絡我</a>
+                </li>
                 @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('post.create')}}">建立文章</a>

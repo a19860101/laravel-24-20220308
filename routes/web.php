@@ -62,3 +62,7 @@ Route::post('clearCart','CartController@clearCart')->name('clearCart');
 //搜尋
 Route::get('search','SearchController@index')->name('search');
 Route::get('search_result','SearchController@searchResult')->name('search.result');
+
+//聯絡我
+Route::get('contact','ContactController@index')->name('contact');
+Route::get('contact/result','ContactController@result')->name('contact.result');
