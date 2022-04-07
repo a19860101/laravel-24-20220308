@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Carbon;
 
 class SearchController extends Controller
 {
@@ -12,8 +13,12 @@ class SearchController extends Controller
         return view('post.search');
     }
     function searchResult(Request $request){
-        $start = $request->start ?? date('Y-m-d');
-        $end = $request->end ?? date('Y-m-d');
+
+        $start = Carbon\Carbon::parse($request->start)->startOfDay();
+        $end = Carbon\Carbon::parse($request->start)->endOfDay();
+
+        // $start = $request->start ?? date('Y-m-d');
+        // $end = $request->end ?? date('Y-m-d');
 
 
         $results = DB::table('posts')
