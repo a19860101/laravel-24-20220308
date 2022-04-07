@@ -60,6 +60,5 @@ Route::post('clearCart','CartController@clearCart')->name('clearCart');
 
 
 //搜尋
-Route::get('search',function(){
-    return view('post.search');
-})->name('search');
+Route::get('search','SearchController@index')->name('search');
+Route::get('search_result','SearchController@searchResult')->name('search.result');

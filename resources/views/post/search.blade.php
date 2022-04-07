@@ -6,10 +6,11 @@
 <div class="container">
     <div class="row">
         <div class="col-8 mx-auto">
-            <form action="">
+            <form action="{{route('search.result')}}" method="get">
+                @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">關鍵字</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="keyword">
                 </div>
                 <div>
                     <input type="submit" value="搜尋" class="btn btn-primary">
