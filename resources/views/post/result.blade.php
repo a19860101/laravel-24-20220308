@@ -6,8 +6,16 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-
+            <h2>
+                共有{{count($results)}}筆結果
+            </h2>
+            <hr>
         </div>
+        @foreach ($results as $result)
+        <div class="col-8">
+            <h3>{{$result->title}}</h3>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection
