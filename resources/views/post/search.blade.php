@@ -12,6 +12,12 @@
                     <label for="" class="form-label">關鍵字</label>
                     <input type="text" class="form-control" name="keyword">
                 </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">日期</label>
+                    <br>
+                    自<input type="date" name="start" class="form-control">
+                    至<input type="date" name="end" class="form-control">
+                </div>
                 <div>
                     <input type="submit" value="搜尋" class="btn btn-primary">
                 </div>

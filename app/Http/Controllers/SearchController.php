@@ -12,6 +12,9 @@ class SearchController extends Controller
         return view('post.search');
     }
     function searchResult(Request $request){
+        return $request;
+
+
         $results = DB::table('posts')
             ->where('title','LIKE','%'.$request->keyword.'%')
             ->get();
